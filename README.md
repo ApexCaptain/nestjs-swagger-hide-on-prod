@@ -1,0 +1,1 @@
+# nestjs-swagger-hide-on-prod

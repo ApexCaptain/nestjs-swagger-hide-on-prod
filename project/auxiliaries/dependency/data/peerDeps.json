@@ -1,0 +1,4 @@
+[
+  "@nestjs/common",
+  "@nestjs/core"
+]

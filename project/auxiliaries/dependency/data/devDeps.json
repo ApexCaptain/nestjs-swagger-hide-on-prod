@@ -1,3 +1,9 @@
 [
-  "koconut"
+  "@nestjs/common",
+  "@nestjs/core",
+  "@nestjs/swagger",
+  "koconut",
+  "reflect-metadata",
+  "rxjs",
+  "tsc-alias"
 ]

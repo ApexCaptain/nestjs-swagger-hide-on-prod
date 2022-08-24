@@ -1,6 +1,7 @@
 import { KoconutArray } from 'koconut';
 import { javascript, typescript } from 'projen';
 import { GithubCredentials } from 'projen/lib/github';
+import { TypeScriptModuleResolution } from 'projen/lib/javascript';
 import {
   IAuxiliary,
   DependencyAuxiliary,
@@ -32,6 +33,10 @@ const project = new typescript.TypeScriptProject({
       noFallthroughCasesInSwitch: false,
       noUnusedLocals: false,
       noUnusedParameters: false,
+      moduleResolution: TypeScriptModuleResolution.NODE,
+      paths: {
+        '@src/*': ['src/*'],
+      },
     },
     exclude: ['src/**/*.spec.ts'],
   },
@@ -39,6 +44,8 @@ const project = new typescript.TypeScriptProject({
     include: ['project/**/*.ts'],
     compilerOptions: {},
   },
+
+  release: false,
 
   defaultReleaseBranch: 'main',
   depsUpgradeOptions: {
@@ -59,10 +66,12 @@ const project = new typescript.TypeScriptProject({
       trailingComma: javascript.TrailingComma.ALL,
     },
   },
+  scripts: {
+    postbuild: 'tsc-alias',
+  },
   authorName: 'SangHun Lee',
   packageName: 'nestjs-swagger-hide-on-prod',
   npmignoreEnabled: false,
-  scripts: {},
   name: 'Nestjs Swagger Hide On Prod',
 });
 void (async () => {

@@ -150,6 +150,7 @@
           "npmignore",
           "projen",
           "projenrc",
+          "tsc",
           "tsconfig"
         ]
       }

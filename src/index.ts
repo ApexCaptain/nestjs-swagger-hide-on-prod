@@ -1,5 +1,2 @@
-export class Hello {
-  public sayHello() {
-    return 'hello, world!';
-  }
-}
+export { SwaggerHideCondition } from './common/types';
+export * from '@src/decorators';

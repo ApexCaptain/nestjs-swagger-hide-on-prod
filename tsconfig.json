@@ -29,7 +29,13 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./",
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": false
+    "forceConsistentCasingInFileNames": false,
+    "moduleResolution": "node",
+    "paths": {
+      "@src/*": [
+        "src/*"
+      ]
+    }
   },
   "include": [
     "src/**/*.ts"

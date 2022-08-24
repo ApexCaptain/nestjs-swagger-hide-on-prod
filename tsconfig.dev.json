@@ -28,7 +28,13 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": false
+    "forceConsistentCasingInFileNames": false,
+    "moduleResolution": "node",
+    "paths": {
+      "@src/*": [
+        "src/*"
+      ]
+    }
   },
   "include": [
     ".projenrc.js",

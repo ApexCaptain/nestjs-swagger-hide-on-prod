@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  workspace:
+    container_name: nestjs_swagger_hide_on_prod_devcon_workspace
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+      args:
+        NODE_VERSION: 16
+        NPM_VERSION: 8.17.0
+    volumes:
+      - ..:/workspace:cached
+      - Nestjs-Swagger-Hide-On-Pord-node_modules:/workspace/node_modules
+    command: sleep infinity
+    user: node
+
+volumes:
+  Nestjs-Swagger-Hide-On-Pord-node_modules:

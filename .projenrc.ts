@@ -38,14 +38,14 @@ const project = new typescript.TypeScriptProject({
         '@src/*': ['src/*'],
       },
     },
-    exclude: ['src/**/*.spec.ts'],
   },
   tsconfigDev: {
     include: ['project/**/*.ts'],
     compilerOptions: {},
   },
 
-  release: false,
+  release: true,
+  releaseToNpm: true,
 
   defaultReleaseBranch: 'main',
   depsUpgradeOptions: {

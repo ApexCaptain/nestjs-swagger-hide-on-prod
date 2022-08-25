@@ -151,7 +151,9 @@
           "projen",
           "projenrc",
           "tsc",
-          "tsconfig"
+          "tsconfig",
+          "accessor",
+          "metatype"
         ]
       }
     ]

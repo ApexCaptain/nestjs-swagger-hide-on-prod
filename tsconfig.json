@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "./dist",
+    "outDir": "lib",
     "alwaysStrict": true,
-    "declaration": false,
+    "declaration": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "inlineSourceMap": true,

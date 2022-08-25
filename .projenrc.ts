@@ -18,13 +18,12 @@ const project = new typescript.TypeScriptProject({
   projenrcTs: true,
   tsconfig: {
     compilerOptions: {
-      declaration: false,
+      declaration: true,
       module: 'commonjs',
       emitDecoratorMetadata: true,
       experimentalDecorators: true,
       allowSyntheticDefaultImports: true,
       target: 'es2017',
-      outDir: './dist',
       baseUrl: './',
       skipLibCheck: true,
       strictNullChecks: true,
@@ -73,6 +72,7 @@ const project = new typescript.TypeScriptProject({
   packageName: 'nestjs-swagger-hide-on-prod',
   npmignoreEnabled: false,
   name: 'Nestjs Swagger Hide On Prod',
+  majorVersion: 1,
 });
 void (async () => {
   // Modify EsLint Rule

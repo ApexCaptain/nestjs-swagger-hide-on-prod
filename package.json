@@ -2,6 +2,7 @@
   "name": "nestjs-swagger-hide-on-prod",
   "scripts": {
     "build": "npx projen build",
+    "bump": "npx projen bump",
     "clobber": "npx projen clobber",
     "compile": "npx projen compile",
     "default": "npx projen default",
@@ -12,9 +13,11 @@
     "post-upgrade": "npx projen post-upgrade",
     "postbuild": "npx projen postbuild",
     "pre-compile": "npx projen pre-compile",
+    "release": "npx projen release",
     "test": "npx projen test",
     "test:update": "npx projen test:update",
     "test:watch": "npx projen test:watch",
+    "unbump": "npx projen unbump",
     "upgrade": "npx projen upgrade",
     "watch": "npx projen watch",
     "projen": "npx projen"
@@ -47,6 +50,7 @@
     "projen": "^0.61.27",
     "reflect-metadata": "0.1.13",
     "rxjs": "^7.5.6",
+    "standard-version": "^9",
     "ts-jest": "^28.0.8",
     "ts-node": "^10.9.1",
     "tsc-alias": "^1.7.0",

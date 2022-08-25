@@ -75,7 +75,7 @@ const project = new typescript.TypeScriptProject({
   },
   authorName: 'SangHun Lee',
   packageName: 'nestjs-swagger-hide-on-prod',
-  npmignoreEnabled: false,
+  npmignoreEnabled: true,
   name: 'Nestjs Swagger Hide On Prod',
   majorVersion: 1,
 });

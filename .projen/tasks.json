@@ -123,7 +123,7 @@
       "name": "project@build",
       "steps": [
         {
-          "exec": "yarn test && rm -rf dist && tsc && tsc-alias"
+          "exec": "yarn test && rm -rf lib && tsc && tsc-alias"
         }
       ]
     },

@@ -69,13 +69,12 @@ const project = new typescript.TypeScriptProject({
   },
   scripts: {
     // eslint-disable-next-line spellcheck/spell-checker
-    'project@build': 'yarn test && rm -rf dist && tsc && tsc-alias',
+    'project@build': 'yarn test && rm -rf lib && tsc && tsc-alias',
     'project@deploy':
       'git add -A && yarn version && git push && git push --tags',
   },
   authorName: 'SangHun Lee',
   packageName: 'nestjs-swagger-hide-on-prod',
-  npmignoreEnabled: true,
   name: 'Nestjs Swagger Hide On Prod',
   majorVersion: 1,
 });
@@ -84,7 +83,6 @@ void (async () => {
   project.eslint?.addRules({
     'no-unused-vars': 'off',
   });
-
   // Modify package.json
   project.addFields({
     version: (() => {
@@ -104,6 +102,7 @@ void (async () => {
         );
       }
     })(),
+    files: ['lib'],
   });
 
   // Aux

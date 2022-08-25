@@ -1,3 +1,6 @@
+import { execSync } from 'child_process';
+import fs from 'fs';
+import path from 'path';
 import { KoconutArray } from 'koconut';
 import { javascript, typescript } from 'projen';
 import { GithubCredentials } from 'projen/lib/github';
@@ -43,8 +46,7 @@ const project = new typescript.TypeScriptProject({
     compilerOptions: {},
   },
 
-  release: true,
-  releaseToNpm: true,
+  release: false,
 
   defaultReleaseBranch: 'main',
   depsUpgradeOptions: {
@@ -66,7 +68,10 @@ const project = new typescript.TypeScriptProject({
     },
   },
   scripts: {
-    postbuild: 'tsc-alias',
+    // eslint-disable-next-line spellcheck/spell-checker
+    'project@build': 'yarn test && rm -rf dist && tsc && tsc-alias',
+    'project@deploy':
+      'git add -A && yarn version && git push && git push --tags',
   },
   authorName: 'SangHun Lee',
   packageName: 'nestjs-swagger-hide-on-prod',
@@ -80,9 +85,25 @@ void (async () => {
     'no-unused-vars': 'off',
   });
 
-  // Use package.json files instead
+  // Modify package.json
   project.addFields({
-    files: ['dist'],
+    version: (() => {
+      try {
+        return execSync(`git describe --tags --abbrev=0`)
+          .toString()
+          .replace(/\r?\n|\r/g, ' ')
+          .trim()
+          .slice(1);
+      } catch (error) {
+        return (
+          JSON.parse(
+            fs
+              .readFileSync(path.join(process.cwd(), 'package.json'))
+              .toString(),
+          ).version || '1.0.0'
+        );
+      }
+    })(),
   });
 
   // Aux

@@ -18,23 +18,13 @@ jobs:
         with:
           node-version: 16
           cache: yarn
+          registry-url: https://registry.npmjs.org/
 
       - name: Install Dependencies
         run: yarn install
 
       - name: Run build script
         run: yarn project@build
-
-  release_github:
-    name: Create GitHub Release
-
-    needs: publish
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout to current repository
-        uses: actions/checkout@v2
 
       - name: Create new release
         uses: actions/create-release@v1
@@ -46,22 +36,6 @@ jobs:
           draft: false
           prerelease: false
 
-  release_npm:
-    name: Release to npm
-
-    needs: publish
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout to current repository
-        uses: actions/checkout@v2
-
-      - name: Use Node.js v16
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16.x'
-          registry-url: https://registry.npmjs.org/
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

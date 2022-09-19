@@ -1,4 +1,4 @@
-version: "3.8"
+version: '3.8'
 
 services:
   workspace:
@@ -8,7 +8,7 @@ services:
       dockerfile: .devcontainer/Dockerfile
       args:
         NODE_VERSION: 16
-        NPM_VERSION: 8.17.0
+        NPM_VERSION: 8.19.2
     volumes:
       - ..:/workspace:cached
       - Nestjs-Swagger-Hide-On-Pord-node_modules:/workspace/node_modules
